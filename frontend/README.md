@@ -1,54 +1,106 @@
-# React + TypeScript + Vite
+# Teste Técnico Front-end BeTalent
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este repositório contém a solução para o Teste Técnico de Front-End da BeTalent. O projeto consiste na construção de uma visualização responsiva de uma tabela de funcionários, onde os dados são consumidos de uma API simulada utilizando o json-server.
 
-Currently, two official plugins are available:
+## Sobre o Projeto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+O desafio tem como objetivo:
 
-## Expanding the ESLint configuration
+- Exibir uma tabela com dados de funcionários contendo as seguintes colunas:
+  - Imagem (thumb do(a) usuário(a))
+  - Nome
+  - Cargo
+  - Data de admissão
+  - Telefone
+- Permitir a realização de pesquisa por meio de um input. A pesquisa deve filtrar os dados por nome, cargo e telefone.
+- Formatar datas e telefones no front-end.
+- Garantir que a visualização seja responsiva para dispositivos móveis e desktops.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+O layout do projeto foi orientado por um mockup disponibilizado no Figma, que define os estilos e a disposição dos elementos em diferentes breakpoints.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Tecnologias Utilizadas
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **React.js** – para construção da interface
+- **TypeScript** – (diferencial) para tipagem estática e melhor organização do código
+- **CSS** – estilização responsiva, utilizando media queries para adaptar a visualização em diferentes dispositivos
+- **json-server** – para simular uma API e fornecer os dados de funcionários
+- **Axios** – para realizar as requisições à API
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Pré-requisitos
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Antes de iniciar, certifique-se de ter instalado em sua máquina:
+
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/)
+- [Yarn](https://yarnpkg.com/) ou outro gerenciador de pacotes de sua preferência
+
+## Instruções para Rodar a Aplicação
+
+1. **Clone o repositório:**
+   ```bash
+   git clone https://github.com/leandrofa1980/desafio_BeTalent.git
+   ```
+2. **Instale o json-server:**
+
+   ```bash
+   yarn add json-server
+   ```
+
+   ou, pelo npm:
+
+   ```bash
+   npm install json-server
+   ```
+
+3. **Instale as dependências:**
+   ```bash
+   cd nome-do-repositorio
+   yarn install
+   ```
+4. **Rode o json-server para consumir a API simulada:**
+   Certifique-se de que o arquivo `db.json` está presente na raiz do projeto e que você esteja na pasta do projeto.
+
+   ```bash
+   yarn json-server --watch db.json
+   ```
+
+   ou, se preferir:
+
+   ```bash
+   npx json-server --watch db.json
+   ```
+
+5. **Inicie a aplicação:**
+   Em outra aba do terminal, execute:
+   ```bash
+   yarn dev
+   ```
+   A aplicação estará disponível normalmente em [http://localhost:3000](http://localhost:3000) (ou a porta definida no seu ambiente).
+
+## Estrutura do Projeto
+
+A estrutura do projeto está organizada da seguinte forma:
+
+- **/src**
+  - **components/** – Componentes reutilizáveis (ex.: TabelaFuncionarios, PesquisaInput, etc.)
+  - **models/** – Tipagens e interfaces (ex.: `Funcionarios.ts`)
+  - **styles/** – Arquivos CSS e/ou pré-processadores
+  - **utils/** – Utilitários, como configuração de requisições (ex.: `request.ts`)
+- **db.json** – Arquivo com os dados da API simulada
+- **README.md** – Este arquivo
+
+## Critérios de Avaliação
+
+O projeto foi desenvolvido considerando os seguintes critérios:
+
+- **Lógica de Programação:** Implementação de filtragem dinâmica dos dados da tabela por meio de um input controlado.
+- **Organização do Código e Arquivos:** Componentização clara e estrutura de pastas organizada.
+- **CSS do Projeto:** Estilização seguindo o mockup do Figma, com responsividade garantida via media queries.
+- **README:** Contém informações detalhadas sobre o projeto, pré-requisitos e instruções para rodar a aplicação.
+- **Uso de TypeScript:** O projeto utiliza TypeScript para melhorar a robustez e escalabilidade do código (diferencial).
+
+## Considerações Finais
+
+Este projeto foi desenvolvido como parte do Teste Técnico para o processo seletivo da BeTalent. Agradeço a oportunidade e estou à disposição para eventuais dúvidas ou discussões sobre a implementação.
+
+---
