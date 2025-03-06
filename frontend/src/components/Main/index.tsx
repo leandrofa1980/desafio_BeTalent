@@ -1,8 +1,12 @@
-import TableHeader from '../TableHeader';
 import lupa from '../../assets/icon/lupa.svg';
 import './styles.css';
 
-function Main() {
+type MainProps = {
+  searchFunc: string;
+  onSearchChange: (value: string) => void;
+};
+
+function Main({ searchFunc, onSearchChange }: MainProps) {
   return (
     <main>
       <section id="section-container">
@@ -17,11 +21,12 @@ function Main() {
                 type="text"
                 placeholder="Pesquisar"
                 className="search-input"
+                value={searchFunc}
+                onChange={(e) => onSearchChange(e.target.value)}
               />
               <img className="lupa-icon" src={lupa} alt="Lupa pesquisa" />
             </div>
           </div>
-          <TableHeader />
         </div>
       </section>
     </main>

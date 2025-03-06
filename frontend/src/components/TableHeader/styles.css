@@ -1,35 +1,38 @@
 .table-container {
   display: table; /* Usa o display de tabela, não flex */
   width: 100%;
-  margin: 12px 0;
+  max-width: 960px;
+  margin: 0 auto;
   background-color: #fff; /* Background geral (não será visível se os filhos tiverem background próprios) */
   border-collapse: collapse; /* Garante que não haja espaçamento entre as células */
-  border-spacing: 0;
 }
 
 .table-thead-container {
   height: 50px;
-  display: table-header-group; /* Padrão para o thead */
+  display: table-header-group; /*Padrão para o thead */
   background-color: #0500ff; /* Background do cabeçalho */
 }
 
+.table-thead-container tr {
+  padding: 20px;
+}
+
 .table-thead-container h3 {
+  padding: 10px 20px 10px 30px;
   color: white;
   font-size: 16px;
   font-weight: 400;
   text-align: left;
 }
 
-.table-container tbody {
+.table-tbody-container {
   display: table-row-group; /* Padrão para o tbody */
-  background-color: #f0f0f0; /* Background do corpo da tabela */
+  background-color: #fff;
 }
 
-.table-container th,
 .table-container td {
-  padding: 12px;
+  padding: 15px 0 15px 30px;
   text-align: left;
-  border: none;
 }
 
 .table-border-left {
@@ -47,10 +50,6 @@
   display: block;
 }
 
-.table-tbody-container {
-  background-color: #fff;
-}
-
 .table-tbody-container tr {
   box-shadow: 0px 1px 2px 0px #00000033;
 }
@@ -59,4 +58,55 @@
   font-size: 16px;
   font-weight: 400;
   text-align: left;
+}
+
+@media (max-width: 600px) {
+  /* Esconde a coluna 5 (começando do índice 1) */
+  .table-container th:nth-child(5),
+  .table-container td:nth-child(5) {
+    display: none;
+  }
+
+  .table-container {
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  .table-border-right-600 {
+    border-radius: 0 10px 0 0;
+  }
+}
+
+@media (max-width: 500px) {
+  /* Esconde a coluna 4 (começando do índice 1) */
+  .table-container th:nth-child(4),
+  .table-container td:nth-child(4) {
+    display: none;
+  }
+
+  .table-container {
+    max-width: 440px;
+    margin: 0 auto;
+  }
+
+  .table-border-right-500 {
+    border-radius: 0 10px 0 0;
+  }
+}
+
+@media (max-width: 380px) {
+  /* Esconde a coluna 3 (começando do índice 1) */
+  .table-container th:nth-child(3),
+  .table-container td:nth-child(3) {
+    display: none;
+  }
+
+  .table-container {
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+  .table-border-right-380 {
+    border-radius: 0 10px 0 0;
+  }
 }
